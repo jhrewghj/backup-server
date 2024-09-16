@@ -1,0 +1,3 @@
+flask
+flask_CORS
+Flask-SQLAlchemy==3.0.4
