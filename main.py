@@ -49,7 +49,7 @@ def store_data():
     data = request.get_json()
     import hashing as h
     with open("data.txt", "w") as file:
-        file.write(f"{h.hashedinfo(data['name'], data['message'])} {data['link']}")
+        file.write(f"{h.hashedinfo(data['name'], data['message'])} {data['url']}")
     return jsonify({"message": "stored"}), 200
 
 # This block is for running your Flask app
