@@ -4,16 +4,6 @@ from flask_cors import CORS  # Import CORS
 app = Flask(__name__)
 CORS(app)
 #put hashing print over here
-
-db = SQLAlchemy()
-#username module
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(80), nullable=False)
-    def __repr__(self):
-        return f'<User {self.username}>'
-
 @app.route('/submit', methods=['POST'])
 
 def submit_data():
@@ -55,9 +45,7 @@ def submit_data():
 
 @app.route('/store', methods=['POST'])
 def store_data():
-    new_user = User(username='your_username', password='your_password')
-    db.session.add(new_user)
-    db.session.commit()
+    return jsonify({"message": "do normal"}), 200
 
 # This block is for running your Flask app
 if __name__ == '__main__':
