@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS  # Import CORS
 app = Flask(__name__)
 CORS(app)
+
 #put hashing print over here
 @app.route('/submit', methods=['POST'])
 
@@ -45,7 +46,11 @@ def submit_data():
 
 @app.route('/store', methods=['POST'])
 def store_data():
-    return jsonify({"message": "do normal"}), 200
+    data = request.get_json()
+    import hashing as h
+    with open("data.txt", "w") as file:
+        file.write(f"{h.hashedinfo(data['name'], data['message'])} {data['link']}")
+    return jsonify({"message": "stored"}), 200
 
 # This block is for running your Flask app
 if __name__ == '__main__':
