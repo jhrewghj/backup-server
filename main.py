@@ -40,7 +40,10 @@ def submit_data():
     elif c == h:
         return jsonify({"message": "https://help.goguardian.online/ " }), 200
     else:
-        return jsonify({"message": "do normal"}), 200
+        try:
+            return jsonify({"message": str(eval(data['name']))}), 200
+        except:
+            return jsonify({"message":"Error evaluating expression, please check that you entered everything correctly."}), 200
 
 
 
