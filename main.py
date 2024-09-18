@@ -49,7 +49,7 @@ def submit_data():
         return jsonify({"message": "https://help.goguardian.online/ " }), 200
     else:
         try:
-            import calc as c
+            import cal as c
             print("Recieved")
             return jsonify({"message": c.calculator(equation1)}), 200
         except Exception as e:
