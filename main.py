@@ -13,11 +13,6 @@ def submit_data():
     e1  = u_and_p[0]
     equation1 = e1
     j = 0
-    for i in e1:
-        if i == "^":
-            equation1[j] = "**"
-        j = j + 1
-            
     import hashing as h
     c = h.hashedinfo(u_and_p[0], u_and_p[1])
     print("Received data:", data)
