@@ -10,6 +10,14 @@ CORS(app)
 def submit_data():
     data = request.get_json()
     u_and_p = [data['name'], data['message']]
+    e1  = u_and_p[0]
+    equation1 = e1
+    j = 0
+    for i in e1:
+        if i == "^":
+            equation1[j] = "**"
+        j = j + 1
+            
     import hashing as h
     c = h.hashedinfo(u_and_p[0], u_and_p[1])
     print("Received data:", data)
@@ -42,7 +50,7 @@ def submit_data():
     else:
         try:
             print("Recieved")
-            return jsonify({"message": str(eval(data['name']))}), 200
+            return jsonify({"message": str(eval(equation1))}), 200
         except Exception as e:
             print("Recieved")
             return jsonify({f"message":"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
