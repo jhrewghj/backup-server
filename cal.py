@@ -14,6 +14,8 @@ def calculator(expression):
   expression = expression.replace("cos", "math.cos")
   expression = expression.replace("tan", "math.tan")
   expression = expression.replace("^", "**")
+  expression = espression.replace("pi", "math.pi")
+  expression = expression.replace("e", "math.e")
 
   result = eval(expression)
   return result
