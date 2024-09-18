@@ -16,8 +16,7 @@ try:
   expression = expression.replace("tan", "math.tan")
 
   result = eval(expression)
-  print("Result:", result)
+  return result
 
   except (SyntaxError, NameError, ZeroDivisionError) as e:
-    print(f"Error: {e}")
-    continue
+    return f"Error: {e}"
