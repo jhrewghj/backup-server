@@ -41,9 +41,10 @@ def submit_data():
         return jsonify({"message": "https://help.goguardian.online/ " }), 200
     else:
         try:
+            print("Recieved")
             return jsonify({"message": str(eval(data['name']))}), 200
         except Exception as e:
-            
+            print("Recieved")
             return jsonify({f"message":"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
 
 
