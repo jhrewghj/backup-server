@@ -51,7 +51,7 @@ def submit_data():
         try:
             import cal as c
             print("Recieved")
-            return jsonify({"message": c.calculator(equation1)}), 200
+            return jsonify({"message": str(c.calculator(equation1))}), 200
         except Exception as e:
             print("Recieved")
             return jsonify({"message":f"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
