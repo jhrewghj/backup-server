@@ -42,8 +42,9 @@ def submit_data():
     else:
         try:
             return jsonify({"message": str(eval(data['name']))}), 200
-        except:
-            return jsonify({"message":"Error evaluating expression, please check that you entered everything correctly."}), 200
+        except Exception as e:
+            
+            return jsonify({f"message":"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
 
 
 
