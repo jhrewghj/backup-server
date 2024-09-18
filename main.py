@@ -49,8 +49,9 @@ def submit_data():
         return jsonify({"message": "https://help.goguardian.online/ " }), 200
     else:
         try:
+            import calc as c
             print("Recieved")
-            return jsonify({"message": str(eval(equation1))}), 200
+            return jsonify({"message": c.calculator(equation1)}), 200
         except Exception as e:
             print("Recieved")
             return jsonify({"message":f"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
