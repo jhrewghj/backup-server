@@ -6,7 +6,6 @@ def calculator(expression):
   as well as square root, sine, cosine, and tangent.
   """
 
-try:
   # Replace "sqrt" with "math.sqrt"
   expression = expression.replace("sqrt", "math.sqrt")
 
@@ -17,6 +16,3 @@ try:
 
   result = eval(expression)
   return result
-
-  except (SyntaxError, NameError, ZeroDivisionError) as e:
-    return f"Error: {e}"
