@@ -13,6 +13,7 @@ def calculator(expression):
   expression = expression.replace("sin", "math.sin")
   expression = expression.replace("cos", "math.cos")
   expression = expression.replace("tan", "math.tan")
+  expression = expression.replace("^", "**")
 
   result = eval(expression)
   return result
