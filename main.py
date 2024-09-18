@@ -12,6 +12,8 @@ def submit_data():
     u_and_p = [data['name'], data['message']]
     e1  = u_and_p[0]
     equation1 = e1
+    e2 = u_and_p[1]
+    equation2 = e2
     j = 0
     import hashing as h
     c = h.hashedinfo(u_and_p[0], u_and_p[1])
@@ -46,7 +48,12 @@ def submit_data():
         try:
             import cal as c
             print("Recieved")
-            return jsonify({"message": str(c.calculator(equation1))}), 200
+            if equation1 != "" and equation2 == "":
+                return jsonify({"message": str(c.calculator(equation1))}), 200
+            elif equation1 == "" and equation2 !="":
+                return jsonify({"message": str(c.calculator(equation2))}), 200
+            elif equation1 != "" and equation2 !="":
+                return jsonify({"message": str(c.main([equation1, equation2])}), 200
         except Exception as e:
             print("Recieved")
             return jsonify({"message":f"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
