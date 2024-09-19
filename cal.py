@@ -58,4 +58,4 @@ def solve_linear_equations(eq1, eq2):
     print("\nSolution:")
     print(f"x = {x}")
     print(f"y = {y}")
-    return f"x = {x}   y = {y}"
+    return f"x = {x}  y = {y}"
