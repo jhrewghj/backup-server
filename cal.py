@@ -20,43 +20,44 @@ def calculator(expression):
   result = eval(expression)
   return result
 
-
-import numpy as np
+import sympy as sp
 import re
 
-def parse_equation(equation):
-    equation = equation.replace(" ", "")
-    pattern = r'([-+]?\d*\.?\d*)(x|y)([-+]?\d*\.?\d*)([-=])([-+]?\d*\.?\d+)'
-    
-    match = re.match(pattern, equation)
-    if match:
-        a = float(match.group(1)) if match.group(1) not in ('', '+') else 1.0
-        b = float(match.group(3)) if match.group(3) not in ('', '+') else 1.0
-        c = float(match.group(5))
-        
-        if match.group(4) == '=':
-            return a, b, c
-        elif match.group(4) == '-':
-            return a, -b, -c
-    raise ValueError("Invalid equation format.")
+def extract_coefficients(equation):
+  """Extracts the coefficients from a linear equation."""
+  match = re.match(r"(-?\d*)x?\s*(\+|\-)?\s*(-?\d*)y\s*=\s*(-?\d*)", equation)
+  if match:
+    a = int(match.group(1)) if match.group(1) else 0
+    b = int(match.group(3)) if match.group(2) == "+" else -int(match.group(3))
+    c = int(match.group(4))
+    return a, b, c
+  else:
+    raise ValueError("Invalid equation format")
 
-def main(equations):
+def solve_linear_equations(eq1, eq2):
+  """Solves a system of two linear equations using Cramer's Rule."""
 
-    # Parse equations
-    A = []
-    B = []
-    
-    for eq in equations:
-        a, b, c = parse_equation(eq)
-        A.append([a, b])
-        B.append(c)
+  # Get the equations from the user
 
-    # Convert to NumPy arrays
-    A = np.array(A)
-    B = np.array(B)
+  # Extract the coefficients
+  a, b, c = extract_coefficients(eq1)
+  d, e, f = extract_coefficients(eq2)
 
-    # Solve the equations
-    solution = np.linalg.solve(A, B)
-    
-    x, y = solution
-    return (x,y)
+  # Calculate determinants
+  D = a * e - b * d
+  Dx = c * e - b * f
+  Dy = a * f - c * d
+
+  # Check for a unique solution
+  if D == 0:
+    print("The system has no unique solution.")
+  else:
+    # Calculate and display the solution
+    x = Dx / D
+    y = Dy / D
+    print("\nSolution:")
+    print(f"x = {x}")
+    print(f"y = {y}")
+
+if __name__ == "__main__":
+  solve_linear_equations()
