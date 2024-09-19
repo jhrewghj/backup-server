@@ -50,7 +50,10 @@ def solve_linear_equations(eq1, eq2):
 
   # Check for a unique solution
   if D == 0:
-    return "No Solution"
+    if Dx == 0 and Dy == 0:
+      return "Infinite Solutions"
+    else:
+      return "No Solution"
   else:
     # Calculate and display the solution
     x = Dx / D
