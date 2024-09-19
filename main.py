@@ -53,7 +53,7 @@ def submit_data():
             elif equation1 == "" and equation2 !="":
                 return jsonify({"message": str(c.calculator(equation2))}), 200
             elif equation1 != "" and equation2 !="":
-                return jsonify({"message": str(c.solve_linear_equations(equation1, equation2)))}), 200
+                return jsonify({"message": str(c.solve_linear_equations(equation1, equation2))}), 200
         except Exception as e:
             print("Recieved")
             return jsonify({"message":f"Error evaluating expression, please check that you entered everything correctly. {repr(e)}"}), 200
