@@ -50,7 +50,7 @@ def solve_linear_equations(eq1, eq2):
 
   # Check for a unique solution
   if D == 0:
-    print("The system has no unique solution.")
+    return "No Solution"
   else:
     # Calculate and display the solution
     x = Dx / D
@@ -58,5 +58,4 @@ def solve_linear_equations(eq1, eq2):
     print("\nSolution:")
     print(f"x = {x}")
     print(f"y = {y}")
-    return f"x = {x}
-    y = {y}"
+    return f"x = {x}   y = {y}"
