@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS  # Import CORS
 app = Flask(__name__)
 CORS(app)
-sys.set_int_max_str_digits(1000000)
+# sys.set_int_max_str_digits(1000000)
 #put hashing print over here
 @app.route('/submit', methods=['POST'])
 
