@@ -1,11 +1,4 @@
 import hashlib
-def hash_content(name):
-	content = name
-	hash_object = hashlib.sha256(content.encode('utf-8'))
-	hex_dig = hash_object.hexdigest()
-	hash_object1 = hashlib.md5(hex_dig.encode('utf-8'))
-	hex_dig1 = hash_object1.hexdigest()
-	return hex_dig1
 def hashedinfo(username, password):
 	content = username
 	hash_object = hashlib.sha256(content.encode('utf-8'))
