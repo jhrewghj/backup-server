@@ -31,19 +31,19 @@ def submit_data():
     user1 = ['fe5e4de02ea301f33e0a1d6d641fa00d', '22b4b30d83b55ed336059f7051446503']
 
     if c == d:
-        return jsonify({"message": "https://surfdoge.pro"}), 200
+        return jsonify({"message": "https://surfdoge.pro", "url":"backup"}), 200
     elif c == e:
-        return jsonify({"message": "https://surfdoge.pro"}), 200
+        return jsonify({"message": "https://surfdoge.pro", "url":"backup"}), 200
     elif c == f:
-        return jsonify({"message": "https://tinf0il.tech"}), 200
+        return jsonify({"message": "https://tinf0il.tech", "url":"backup"}), 200
     elif c == g:
-        return jsonify({"message": "https://architecture.hillbrick.net/"}), 200
+        return jsonify({"message": "https://architecture.hillbrick.net/", "url":"backup"}), 200
     elif c == f:
-        return jsonify({"message": "https://basketrandomonline.github.io/play/minecraft-1.8.8/"}), 200
+        return jsonify({"message": "https://basketrandomonline.github.io/play/minecraft-1.8.8/", "url":"backup"}), 200
     elif user1 == c:
         return jsonify({"message": "https://utopia.web" }), 200
     elif c == h:
-        return jsonify({"message": "https://help.goguardian.online/ " }), 200
+        return jsonify({"message": "https://help.goguardian.online/ ", "url":"backup" }), 200
     else:
         try:
             import cal as c
